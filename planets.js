@@ -13,7 +13,7 @@ planets.Planet = function(engine, pos, veloc, heading, mass, radius, atmradius, 
 planets.Planet.prototype = Object.create(sprite.Sprite.prototype);
 planets.Planet.prototype.constructor = planets.Planet;
 
-planets.Planet.prototype.render= function(context, origin) {
+planets.Planet.prototype.render = function(context, origin) {
 	var rel = this.pos.minus(origin);
 	var relx = rel.x*sprite.SCALE + this.engine.canvas.width/2;
 	var rely = rel.y*sprite.SCALE + this.engine.canvas.height/2;

@@ -45,6 +45,14 @@ sprite.Sprite.prototype = {
 			}
 		return accel;
 	},
+	/*collides(pos) {
+		var sprites = this.engine.sprites;
+		
+		for(var i = 0; i < sprites.length; i++) 
+			if(sprites[i].collide(this, tpos)) return true;
+		
+		return false;
+	},*/
 	update(delta) {
 		var h = delta;
 		
@@ -66,11 +74,18 @@ sprite.Sprite.prototype = {
 		this.veloc.add(v3.times(1/3));
 		this.veloc.add(v4.times(1/6));
 		
-		this.pos.add(k1.times(1/6));
-		this.pos.add(k2.times(1/3));
-		this.pos.add(k3.times(1/3));
-		this.pos.add(k4.times(1/6));
+		//tpos = this.pos.clone();
+		//tpos.add(k1.times(1/6));
+		//tpos.add(k2.times(1/3));
+		//tpos.add(k3.times(1/3));
+		//tpos.add(k4.times(1/6));
 		
+		/*if(!this.collides(tpos)) {*/
+			this.pos.add(k1.times(1/6));
+			this.pos.add(k2.times(1/3));
+			this.pos.add(k3.times(1/3));
+			this.pos.add(k4.times(1/6));
+		/*}*/
 	},
 	render(context, origin) {
 		var rel = this.pos.minus(origin);
@@ -90,7 +105,9 @@ sprite.Sprite.prototype = {
 		
 		context.fillStyle = "white";
 		context.beginPath();
-		context.arc(0, 0, 5, 0, 2*Math.PI);
+		context.moveTo(0, -10);
+		context.lineTo(-5, 5);
+		context.lineTo(5, 5);
 		context.fill();
 		
 		context.drawImage(this.images[this.state][this.frame], -this.pwidth/2, -this.pheight/2, this.pwidth, this.pheight);
