@@ -1,28 +1,28 @@
 <html>
-	<head>
-		<script src="math.js"></script>
-		<script src="input.js"></script>
-		<script src="engine.js"></script>
-		<script src="resource.js"></script>
-		<script src="sprite.js"></script>
-		<script src="stars.js"></script>
-		<script src="ship.js"></script>
-		<script src="planets.js"></script>
-		<link rel="stylesheet" href="style.css">
-		<script>
-			window.onload = function() {
-				var c = document.getElementById("view");
-				c.width = document.documentElement.clientWidth;
-				c.height = document.documentElement.clientHeight;
-				game = new engine.Engine("view");
-				game.start();
-			}
-		</script>
-		<title>Astra-Impulse</title>
-	</head>
-	
-	<body>
-		<canvas id = "view" width="400px" height="500px"></canvas>
-	</body>
-	
+<head>
+    <script src="math.js"></script>
+    <script src="input.js"></script>
+    <script src="engine.js"></script>
+    <script src="resource.js"></script>
+    <script src="sprite.js"></script>
+    <script src="stars.js"></script>
+    <script src="ship.js"></script>
+    <script src="planets.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.onload = function () {
+            var c = document.getElementById("view");
+            c.width = document.documentElement.clientWidth;
+            c.height = document.documentElement.clientHeight;
+            game = new engine.Engine("view");
+            game.start();
+        }
+    </script>
+    <title>Astra-Impulse</title>
+</head>
+
+<body>
+<canvas id="view" width="400px" height="500px"></canvas>
+</body>
+
 </html>

@@ -22,11 +22,11 @@ ship.Ship.prototype.update = function(delta) {
 	if(this.settings & ship.SETTINGS.DAMPEN != 0) this.thrust = v.clone().rotate(-this.heading);
 	
 	this.super.update.call(this, delta);
-}
+};
 
 ship.Ship.prototype.getaccel = function(pos){
 	return this.super.getaccel.call(this, pos).plus(this.thrust.rotate(this.heading));
-}
+};
 
 ship.Component = function(engine, pos, veloc, heading, mass, width, height, images, parent) {
 	sprite.Sprite.call(this, engine, pos, veloc, mass, width, height, images);
@@ -41,7 +41,7 @@ ship.Component = function(engine, pos, veloc, heading, mass, width, height, imag
 		
 		if(this.settings & ship.SETTINGS.DAMPEN != 0) this.thrust = v.clone().rotate(-this.heading);
 	}
-}
+};
 
 ship.Component.prototype = Object.create(sprite.Sprite.prototype);
 ship.Component.prototype.constructor = ship.Component;
