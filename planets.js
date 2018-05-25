@@ -26,7 +26,12 @@ planets.Planet.prototype.render = function (context, origin) {
     context.translate(relx, rely);
     context.rotate(this.heading);
 
-    var grad = context.createRadialGradient(0, 0, this.radius * sprite.SCALE, 0, 0, this.atmradius * sprite.SCALE);
+    context.fillStyle = "rgb(" + this.color + ")";
+    context.beginPath();
+    context.arc(0, 0, this.radius * sprite.SCALE, 0, 2 * Math.PI);
+    context.fill();
+
+    var grad = context.createRadialGradient(0, 0, 0, 0, 0, this.atmradius * sprite.SCALE);
     grad.addColorStop(0, "rgba(" + this.atmcolor + ", 0.75)");
     grad.addColorStop(1, "rgba(" + this.atmcolor + ", 0)");
 
@@ -35,10 +40,7 @@ planets.Planet.prototype.render = function (context, origin) {
     context.arc(0, 0, this.atmradius * sprite.SCALE, 0, 2 * Math.PI);
     context.fill();
 
-    context.fillStyle = "rgb(" + this.color + ")";
-    context.beginPath();
-    context.arc(0, 0, this.radius * sprite.SCALE, 0, 2 * Math.PI);
-    context.fill();
+
 
     context.rotate(-this.heading);
 
