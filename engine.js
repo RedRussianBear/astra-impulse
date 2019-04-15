@@ -154,6 +154,7 @@ engine.Engine.prototype = {
         this.sactions[input.KEYBOARD.J] = function() {
             this.mystery = new planets.Planet(this, new math.Vector(7000000 + 164402000, 0), 0, Math.pi / 2, 734767309000000000000000, 1737000, 1837001, "226, 88, 34", "0, 0, 0");
             this.sprites.push(this.mystery);
+            this.mystery.veloc = new math.Vector(Math.sqrt(this.mystery.accel.norm * this.mystery.pos.minus(this.sprites[1].pos).norm)).rotate(this.mystery.accel.theta - Math.PI / 2);
         };
         this.sactions[input.KEYBOARD.U] = function () {
             this.player.veloc = new math.Vector(Math.sqrt(this.player.accel.norm * this.player.pos.minus(this.sprites[1].pos).norm)).rotate(this.player.accel.theta + Math.PI / 2);
